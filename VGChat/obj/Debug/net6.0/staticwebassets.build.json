@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ZdK/6fiLB1mZ5gPtlHvFrm/qgGc4tLsTkzsQMtTHOh8=",
+  "Hash": "Efx3NM/GxZtdsYj6EufBSvwdpBkzKmBSJx5hDxTa8ZY=",
   "Source": "VGChat",
   "BasePath": "_content/VGChat",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\sevva\\Desktop\\C#\\VS 2022\\asp.net\\VGChat\\VGChat\\wwwroot\\css\\StyleSheet.css",
+      "SourceId": "VGChat",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\sevva\\Desktop\\C#\\VS 2022\\asp.net\\VGChat\\VGChat\\wwwroot\\",
+      "BasePath": "_content/VGChat",
+      "RelativePath": "css/StyleSheet.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\StyleSheet.css"
     },
     {
       "Identity": "C:\\Users\\sevva\\Desktop\\C#\\VS 2022\\asp.net\\VGChat\\VGChat\\wwwroot\\favicon.ico",
