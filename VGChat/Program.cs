@@ -1,3 +1,5 @@
+using VGChat.Hubs;
+
 namespace VGChat
 {
 	public class Program
@@ -6,8 +8,20 @@ namespace VGChat
 		{
 			var builder = WebApplication.CreateBuilder(args);
 
+
 			// Add services to the container.
-			builder.Services.AddControllersWithViews();
+			builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+			builder.Services.AddSignalR();
+			builder.Services.AddCors(options =>
+			{
+				options.AddDefaultPolicy(
+					builder =>
+					{
+						builder.AllowAnyOrigin()
+						.AllowAnyHeader()
+						.AllowAnyMethod();
+					});
+			});
 
 			var app = builder.Build();
 
@@ -23,10 +37,12 @@ namespace VGChat
 			app.UseStaticFiles();
 
 			app.UseRouting();
+			app.UseCors();
 
 			app.UseAuthorization();
+			app.MapHub<ChatHub>("/chatHub");
 
-			app.MapControllerRoute(
+            app.MapControllerRoute(
 				name: "default",
 				pattern: "{controller=Home}/{action=Index}/{id?}");
 

@@ -4,5 +4,27 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+    @section Scripts{
+    <script>
+        const connection = new signalR.HubConnectionBuilder()
+        .withUrl("/chatHub")
+        .configureLogging(signalR.LogLevel.Information)
+        .build();
+        async function start(){
+            try{
+                await connection.start();
+                console.log("SignalR Connected.");
+            }
+            catch(err){
+                console.error(err);
+                setTimeout(start,5000);
+            }
+        }
+        connection.onclose(async () =>{
+            await start();
+        });
+        start();
+     </script>
+    }
+    
