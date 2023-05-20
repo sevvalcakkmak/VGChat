@@ -4,27 +4,62 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
+    <div class="contianer">
+        <div class="row">
+            <div class="col-4">
+                <input type="text" class = "form-control" id="message" placeholder="Mesaj Giriniz..."/>
+                <input type="text" class="form-control" id="userName" placeholder="Kullanıcı Adı..." />
+                <button id="btnSendMessage" type="button" class="btn btn-primary">Gönder</button>
+            </div>
+            <div class="col-8">
+                <ul class="list-group" id="messages">
+
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
-    @section Scripts{
+@section Scripts{
     <script>
         const connection = new signalR.HubConnectionBuilder()
         .withUrl("/chatHub")
         .configureLogging(signalR.LogLevel.Information)
         .build();
+        
         async function start(){
+         
             try{
                 await connection.start();
-                console.log("SignalR Connected.");
+                console.log("SignalR Bağlandı.");
             }
             catch(err){
                 console.error(err);
-                setTimeout(start,5000);
+                setTimeout(start, 5000);
             }
         }
-        connection.onclose(async () =>{
+        connection.onclose(async() => {
             await start();
         });
+
         start();
-     </script>
-    }
-    
+        $('#btnSendMessage').click(function(){
+            try{
+                var kullaniciAdi = $('#userName').val();
+                var message = $('#message').val();
+                connection.invoke("SendMessage", kullaniciAdi, message);
+
+            }catch(err){
+                console.error(err);
+            }
+        });
+        $().ready(function(){
+            connection.on("ReceiveMessage", (user, message) => {
+                console.log(user,message);
+                $('#messages').append(
+                    `<li class = "list-group-item"> ${user}:${message}</li>`
+                )
+            })
+        })
+
+    </script>
+}
