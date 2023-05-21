@@ -6,7 +6,7 @@
     <title>@ViewData["Title"] - VGChat</title>
     <link rel="stylesheet" href="~/css/StyleSheet.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/VGChatDemo.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/VGChat.styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
@@ -24,6 +24,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Message" asp-action="Index">Mesajlar</a>
                         </li>
                     </ul>
 
@@ -47,6 +50,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/signalR/signalr.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

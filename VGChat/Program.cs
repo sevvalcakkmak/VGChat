@@ -11,17 +11,20 @@ namespace VGChat
 		public static void Main(string[] args)
 		{
 			var builder = WebApplication.CreateBuilder(args);
-               var connectionString = builder.Configuration.GetConnectionString("VGChatAuthDbContextConnection") ?? throw new InvalidOperationException("Connection string 'VGChatAuthDbContextConnection' not found.");
+            // Add services to the container.
+            builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
-                           builder.Services.AddDbContext<VGChatAuthDbContext>(options =>
+            var connectionString = builder.Configuration.GetConnectionString("VGChatAuthDbContextConnection") ?? throw new InvalidOperationException("Connection string 'VGChatAuthDbContextConnection' not found.");
+
+			builder.Services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(connectionString));
+
+            builder.Services.AddDbContext<VGChatAuthDbContext>(options =>
                 options.UseSqlServer(connectionString));
 
             builder.Services.AddDefaultIdentity<VGChatUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<VGChatAuthDbContext>();
 
-
-			// Add services to the container.
-			builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 			builder.Services.AddSignalR();
 			builder.Services.AddCors(options =>
 			{
@@ -34,7 +37,11 @@ namespace VGChat
 					});
 			});
 
-			builder.Services.AddRazorPages();
+            builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
+                 builder.Configuration.GetConnectionString("DefaultConnection")
+            ));
+
+            builder.Services.AddRazorPages();
 
 
 			var app = builder.Build();
@@ -52,8 +59,8 @@ namespace VGChat
 
 			app.UseRouting();
 			app.UseCors();
-            app.UseAuthentication();;
 
+            app.UseAuthentication();;
 			app.UseAuthorization();
 			app.MapHub<ChatHub>("/chatHub");
 
