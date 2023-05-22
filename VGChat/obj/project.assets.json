@@ -10541,19 +10541,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\sevva\\.nuget\\packages\\": {}
+    "C:\\Users\\Said Berk\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sevva\\Desktop\\VGChat\\VGChat\\VGChat.csproj",
+      "projectUniqueName": "C:\\Users\\Said Berk\\Documents\\C#\\ASP.NET\\VGChat\\VGChat\\VGChat\\VGChat.csproj",
       "projectName": "VGChat",
-      "projectPath": "C:\\Users\\sevva\\Desktop\\VGChat\\VGChat\\VGChat.csproj",
-      "packagesPath": "C:\\Users\\sevva\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sevva\\Desktop\\VGChat\\VGChat\\obj\\",
+      "projectPath": "C:\\Users\\Said Berk\\Documents\\C#\\ASP.NET\\VGChat\\VGChat\\VGChat\\VGChat.csproj",
+      "packagesPath": "C:\\Users\\Said Berk\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Said Berk\\Documents\\C#\\ASP.NET\\VGChat\\VGChat\\VGChat\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\sevva\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Said Berk\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
