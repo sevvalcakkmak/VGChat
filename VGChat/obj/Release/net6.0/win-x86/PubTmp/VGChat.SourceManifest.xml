@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="C:\Users\Said Berk\Documents\C#\ASP.NET\VGChat\VGChat\VGChat\obj\Release\net6.0\win-x86\PubTmp\Out\" />
+  <dbfullsql path="C:\Users\Said Berk\Documents\C#\ASP.NET\VGChat\VGChat\VGChat\obj\Release\net6.0\win-x86\PubTmp\EFSQLScripts\VGChat.Data.ApplicationDbContext.sql" />
+  <dbfullsql path="C:\Users\Said Berk\Documents\C#\ASP.NET\VGChat\VGChat\VGChat\obj\Release\net6.0\win-x86\PubTmp\EFSQLScripts\VGChat.Data.VGChatAuthDbContext.sql" />
+</sitemanifest>

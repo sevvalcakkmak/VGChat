@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Bu dosya, Web projenizin yayımlama/paket işlemi tarafından kullanılıyor. MSBuild dosyasını düzenleyerek
+bu işlemin davranışını düzenleyebilirsiniz. Bununla ilgili daha fazla bilgi edinmek için https://go.microsoft.com/fwlink/?LinkID=208121 adresini ziyaret edin. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAqO9HDF/xlEKayE+48vMSIQAAAAACAAAAAAAQZgAAAAEAACAAAABF7KT3vS/fIoAYvtJAbJtBcMGRzYRyzoq5BzMq7ZmCEgAAAAAOgAAAAAIAACAAAABSGUAP5L0N9y8g3LauS1S3lgurzsJSsFhl5eGhnGStCoAAAACrutttb+VRVm6myauyNR3hZW+HueLiuenY/ZXb9UGSPUVcFl+d/G2T2S4hhsXcOi4xLMoWI0KxVw7jzHenLUL31xgwU8Ew9A0MTMsW51A2rKuMXZrzzKjQGEusDsGto8xuQoqq+BU/s5NLSK0jPBx6eCSKvvJTDzLwTKxvCRPQ2kAAAAAopCCqZ84cZMFGJVCBI03z8L/u+UqKoAtfRorb1r3px29OWFkjECuQLFWSfspoFRosoPDzhx6dK7YhDpZLCDXS</EncryptedPassword>
+    <History>True|2023-05-21T18:33:05.9851233Z;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="VGChatAuthDbContextConnection">
+      <Value>Server=tcp:vgchat.database.windows.net,1433%3bInitial Catalog=vgchat_db%3bPersist Security Info=False%3bUser ID=azureuser%3bPassword=dxdiag27%3f%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="VGChat.Data.ApplicationDbContext">
+      <Value>Server=tcp:vgchat.database.windows.net,1433%3bInitial Catalog=vgchat_db%3bPersist Security Info=False%3bUser ID=azureuser%3bPassword=dxdiag27%3f%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
+    </EFMigrations>
+    <EFMigrations Include="VGChat.Data.VGChatAuthDbContext">
+      <Value>Server=tcp:vgchat.database.windows.net,1433%3bInitial Catalog=vgchat_db%3bPersist Security Info=False%3bUser ID=azureuser%3bPassword=dxdiag27%3f%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>
