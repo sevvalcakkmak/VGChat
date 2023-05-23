@@ -12,7 +12,7 @@ using VGChat.Data;
 namespace VGChat.Migrations
 {
     [DbContext(typeof(VGChatAuthDbContext))]
-    [Migration("20230521111103_AddUsersToDatabase")]
+    [Migration("20230523192401_AddUsersToDatabase")]
     partial class AddUsersToDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

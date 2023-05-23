@@ -1,25 +1,47 @@
-﻿@model IEnumerable<Message>   
+﻿@model IEnumerable<Message>
 
 @{
     ViewData["Title"] = "Index";
 }
 
+<style>
+    .scrollable-container {
+        max-height: 640px; /* İçeriğin maksimum yüksekliği */
+        overflow-y: auto; /* Yalnızca dikey kaydırma çubuğu göster */
+    }
+</style>
+
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <div class="contianer">
         <div class="row">
-            <div class="col-4">
-                <input type="text" class="form-control" id="message" placeholder="Mesaj Giriniz..." />
-                <input class="d-none" id="UserName" value="@ViewData["UserName"]" />
-                <button id="btnSendMessage" type="button" class="btn btn-primary">Gönder</button>
-            </div>
-            <div class="col-8">
-                <ul class="list-group" id="messages">
-                    @foreach(var obj in Model)
+            <div>
+                <ul class="list-group scrollable-container" id="messages">
+                    @foreach (var obj in Model)
                     {
-                        <li class="list-group-item"> @obj.UserName : @obj.Content</li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-9 ">
+                                    @obj.UserName : @obj.Content
+                                </div>
+                                <div class="col-3">
+                                    @obj.MessageSentTime
+                                </div>
+                            </div>
+                        </li>
                     }
                 </ul>
+            </div>
+            <div>
+                <input class="d-none" id="UserName" value="@ViewData["UserName"]" />
+                <div class="input-group">
+                    <input type="text" class="form-control" id="message" onkeydown="sendMessageOnEnter(event)" placeholder="Mesaj Giriniz..." />
+                    <button id="btnSendMessage" class="btn btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
+                            <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z" />
+                        </svg>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -49,7 +71,8 @@
         });
 
         start();
-        $('#btnSendMessage').click(function () {
+
+        function sendMessage() {
             try {
                 var kullaniciAdi = $('#UserName').val();
                 var message = $('#message').val();
@@ -58,15 +81,50 @@
             } catch (err) {
                 console.error(err);
             }
-        });
+        }
+
+        $('#btnSendMessage').click(sendMessage);
+
+        function scrollToBottom() { //scroll ekranını otomatik aşağıya kaydırır
+            var messageContainer = document.getElementById("messages");
+            messageContainer.scrollTop = messageContainer.scrollHeight;
+        }
+
+        window.onload = function () { //scroll ekranını otomatik olarak aşağıdan başlatır
+            var messagesContainer = document.getElementById('messages');
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        };
+
+        function clearMessageInput() { //mesaj kutusunu temizler
+            var messageInput = document.getElementById("message");
+            messageInput.value = "";
+        }
+
+        function sendMessageOnEnter(event) {
+            if (event.keyCode == 13) { // Enter tuşunun keyCode'u 13'tür
+                event.preventDefault(); // Sayfanın yenilenmesini engellemek için varsayılan davranışı engelle
+
+                sendMessage();// Mesajı gönder
+            }
+        }
+
         $().ready(function () {
-            connection.on("ReceiveMessage", (user, message) => {
-                console.log(user, message);
+            connection.on("ReceiveMessage", (user, message, time) => {
                 $('#messages').append(
-                    `<li class = "list-group-item"> ${user} : ${message}</li>`
+                    `<li class="list-group-item">
+                                  <div class="row">
+                                      <div class="col-9 ">
+                                            ${user} : ${message}
+                                      </div>
+                                       <div class="col-3">
+                                            ${time}</
+                                       </div>
+                                  </div>
+                            </li>`
                 )
+                scrollToBottom();
+                clearMessageInput();
             })
         })
-
     </script>
 }

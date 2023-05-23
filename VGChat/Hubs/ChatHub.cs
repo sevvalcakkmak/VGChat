@@ -19,7 +19,7 @@ namespace VGChat.Hubs
             {
                 UserName = user,
                 Content = content,
-                MessageSentTime = DateTime.UtcNow
+                MessageSentTime = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")
             };
 
             _dbContext.Messages.Add(message);

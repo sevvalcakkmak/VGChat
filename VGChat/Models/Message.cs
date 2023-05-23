@@ -8,6 +8,6 @@ namespace VGChat.Models
         [Required] public string Content { get; set; }
         [Required] public string UserName { get; set; }
         [Required] public int GroupId { get; set; }
-        public DateTime? MessageSentTime { get; set; } = DateTime.Now;
+        public string MessageSentTime { get; set; } = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
     }
 }

@@ -1,5 +1,5 @@
 ﻿@using VGChat.Areas.Identity.Data;
-@model IEnumerable<VGChatUser>   
+@model IEnumerable<VGChatUser>
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -7,14 +7,20 @@
 <div class="text-center">
     <h1 class="display-4">Index</h1>
     <p>User ID: @ViewData["UserID"]</p>
-
-    <div class="col-8">
-                <ul class="list-group" id="messages">
-                    @foreach(var obj in Model)
-                    {
-                        <li class="list-group-item"> @obj.UserName &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<button class="btn btn-primary">Mesaj Gönder</button></li>
-                    }
-                </ul>
-     </div>
 </div>
-    
+
+<div class="row border border-secondary border-2 rounded m-0 p-0 scrollspy-example" data-bs-spy="scroll">
+
+    <div class="col-12 m-0 p-0">
+        <ul class="list-group m-0" id="messages">
+            @foreach (var obj in Model)
+            {
+                <li class="list-group-item  d-flex justify-content-between">
+                    <h>@obj.UserName</h>
+                    <a class="btn btn-primary" asp-area="" asp-controller="Message" asp-action="Index">Mesaj Gönder</a>
+                </li>
+            }
+        </ul>
+    </div>
+
+</div>

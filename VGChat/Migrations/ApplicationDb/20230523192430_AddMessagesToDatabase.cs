@@ -1,11 +1,10 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace VGChat.Migrations.ApplicationDb
 {
-    public partial class AddMessasgesToDatabase : Migration
+    public partial class AddMessagesToDatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -18,7 +17,7 @@ namespace VGChat.Migrations.ApplicationDb
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     GroupId = table.Column<int>(type: "int", nullable: false),
-                    MessageSentTime = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    MessageSentTime = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
