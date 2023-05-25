@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using VGChat.Data;
 using VGChat.Areas.Identity.Data;
+using VGChat.Hubs.VGChat.Hubs;
 
 namespace VGChat
 {

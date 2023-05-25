@@ -16,7 +16,7 @@
             @foreach (var obj in Model)
             {
                 <li class="list-group-item  d-flex justify-content-between">
-                    <h>@obj.UserName</h>
+                    <h style="font-size: 20px;">@obj.UserName</h>
                     <a class="btn btn-primary" asp-area="" asp-controller="Message" asp-action="Index">Mesaj Gönder</a>
                 </li>
             }
