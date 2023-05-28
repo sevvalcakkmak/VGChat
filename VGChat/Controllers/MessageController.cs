@@ -21,8 +21,9 @@ namespace VGChat.Controllers
             this._userManager = userManager;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(String? targetUserID, String? currentUserID)
         {
+            Console.WriteLine("T = {0}, C = {1}", targetUserID, currentUserID);
             ViewData["UserName"] = _userManager.GetUserName(this.User);
             IEnumerable<Message> objMessageList = _db.Messages.ToList(); //creating a list from db
             return View(objMessageList); //passing that list

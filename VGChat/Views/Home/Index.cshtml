@@ -19,7 +19,7 @@
                 {//Mevcut oturumun sahibinin id'si ile eslesiyorsa anasayfaya bastirma. Kullanici kendine mesaj atamasin.
                   <li class="list-group-item  d-flex justify-content-between">
                     <h style="font-size: 20px;">@obj.FirstName @obj.LastName || @obj.UserName </h>
-                    <a class="btn btn-primary" asp-area="" asp-controller="Message" asp-action="Index">Mesaj Gönder</a>
+                    <a class="btn btn-primary" asp-controller="Message" asp-action="Index" asp-route-currentUserID=@ViewData["UserID"].ToString() asp-route-targetUserID=@obj.Id.ToString()>Mesaj Gönder</a>
                     </li>
                 }
             }
