@@ -10541,19 +10541,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\sevva\\.nuget\\packages\\": {}
+    "C:\\Users\\nilro\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sevva\\Desktop\\New folder (3)\\VGChat\\VGChat\\VGChat.csproj",
+      "projectUniqueName": "C:\\Users\\nilro\\Desktop\\vvvvgc\\VGChat\\VGChat\\VGChat.csproj",
       "projectName": "VGChat",
-      "projectPath": "C:\\Users\\sevva\\Desktop\\New folder (3)\\VGChat\\VGChat\\VGChat.csproj",
-      "packagesPath": "C:\\Users\\sevva\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sevva\\Desktop\\New folder (3)\\VGChat\\VGChat\\obj\\",
+      "projectPath": "C:\\Users\\nilro\\Desktop\\vvvvgc\\VGChat\\VGChat\\VGChat.csproj",
+      "packagesPath": "C:\\Users\\nilro\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\nilro\\Desktop\\vvvvgc\\VGChat\\VGChat\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\sevva\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\nilro\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10625,7 +10625,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

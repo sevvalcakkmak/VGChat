@@ -4,27 +4,37 @@ using VGChat.Models;
 
 namespace VGChat.Hubs
 {
-    public class ChatHub:Hub
+    namespace VGChat.Hubs
     {
-        private readonly ApplicationDbContext _dbContext;
-
-        public ChatHub(ApplicationDbContext dbContext)
+        public class ChatHub : Hub
         {
-            _dbContext = dbContext;
-        }
+            private readonly ApplicationDbContext _dbContext;
 
-        public async Task SendMessage(string user, string content)
-        {
-            var message = new Message
+            public ChatHub(ApplicationDbContext dbContext)
             {
-                UserName = user,
-                Content = content,
-                MessageSentTime = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")
-            };
+                _dbContext = dbContext;
+            }
 
-            _dbContext.Messages.Add(message);
-            await Clients.All.SendAsync("ReceiveMessage", message.UserName, message.Content, message.MessageSentTime);
-            await _dbContext.SaveChangesAsync();
+            public async Task SendMessage(string user, string content)
+            {
+                if (string.IsNullOrEmpty(user) || string.IsNullOrEmpty(content))
+                {
+                    // Hata durumunda veya null parametre gönderildiğinde yapılacak işlemler
+                    return;
+                }
+
+                var message = new Message
+                {
+                    UserName = user,
+                    Content = content,
+                    MessageSentTime = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")
+                };
+
+                _dbContext.Messages.Add(message);
+                await Clients.All.SendAsync("ReceiveMessage", message.UserName, message.Content, message.MessageSentTime);
+                await _dbContext.SaveChangesAsync();
+            }
         }
     }
+
 }
