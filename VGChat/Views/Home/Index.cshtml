@@ -1,12 +1,12 @@
 ﻿@using VGChat.Areas.Identity.Data;
 @model IEnumerable<VGChatUser>
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Ana Sayfa";
 }
 
 <div class="text-center">
     <h1 class="display-4">Index</h1>
-    <p>User ID: @ViewData["UserID"]</p>
+    <p>Hoş Geldin @ViewData["UserName"]</p>
 </div>
 
 <div class="row border border-secondary border-2 rounded m-0 p-0 scrollspy-example" data-bs-spy="scroll">
@@ -15,10 +15,13 @@
         <ul class="list-group m-0" id="messages">
             @foreach (var obj in Model)
             {
-                <li class="list-group-item  d-flex justify-content-between">
-                    <h style="font-size: 20px;">@obj.UserName</h>
+                if(obj.Id.ToString() != ViewData["UserID"].ToString())//ToString gerekli cunku sistem ikisini farklı degerler olarak algiliyordu.
+                {//Mevcut oturumun sahibinin id'si ile eslesiyorsa anasayfaya bastirma. Kullanici kendine mesaj atamasin.
+                  <li class="list-group-item  d-flex justify-content-between">
+                    <h style="font-size: 20px;">@obj.FirstName @obj.LastName || @obj.UserName </h>
                     <a class="btn btn-primary" asp-area="" asp-controller="Message" asp-action="Index">Mesaj Gönder</a>
-                </li>
+                    </li>
+                }
             }
         </ul>
     </div>

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nilro\\Desktop\\vvvvgc\\VGChat\\VGChat\\VGChat.csproj": {}
+    "C:\\Users\\Said Berk\\Documents\\C#\\ASP.NET\\VGChat\\VGChat\\VGChat\\VGChat.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nilro\\Desktop\\vvvvgc\\VGChat\\VGChat\\VGChat.csproj": {
+    "C:\\Users\\Said Berk\\Documents\\C#\\ASP.NET\\VGChat\\VGChat\\VGChat\\VGChat.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nilro\\Desktop\\vvvvgc\\VGChat\\VGChat\\VGChat.csproj",
+        "projectUniqueName": "C:\\Users\\Said Berk\\Documents\\C#\\ASP.NET\\VGChat\\VGChat\\VGChat\\VGChat.csproj",
         "projectName": "VGChat",
-        "projectPath": "C:\\Users\\nilro\\Desktop\\vvvvgc\\VGChat\\VGChat\\VGChat.csproj",
-        "packagesPath": "C:\\Users\\nilro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nilro\\Desktop\\vvvvgc\\VGChat\\VGChat\\obj\\",
+        "projectPath": "C:\\Users\\Said Berk\\Documents\\C#\\ASP.NET\\VGChat\\VGChat\\VGChat\\VGChat.csproj",
+        "packagesPath": "C:\\Users\\Said Berk\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Said Berk\\Documents\\C#\\ASP.NET\\VGChat\\VGChat\\VGChat\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\nilro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Said Berk\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -86,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

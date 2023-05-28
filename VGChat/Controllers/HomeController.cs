@@ -22,10 +22,15 @@ namespace VGChat.Controllers
             this._userManager = userManager;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             IEnumerable<VGChatUser> objUserList = _db.Users.ToList();
             ViewData["UserID"] = _userManager.GetUserId(this.User);
+
+            VGChatUser user = await _userManager.GetUserAsync(this.User);
+            String firstName = user.FirstName;
+
+            ViewData["UserName"] = firstName;
             return View(objUserList);
         }
 
