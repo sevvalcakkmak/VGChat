@@ -5,21 +5,21 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Index</h1>
+    <h1 class="display-4"><img width="220px" height="60px" src="~/css/logo_main.png"/></h1>
     <p>Hoş Geldin @ViewData["UserName"]</p>
 </div>
 
-<div class="row border border-secondary border-2 rounded m-0 p-0 scrollspy-example" data-bs-spy="scroll">
+<div class="row m-0 p-0 scrollspy-example justify-content-center" data-bs-spy="scroll">
 
-    <div class="col-12 m-0 p-0">
+    <div class="col-8 m-0 p-0 border border-secondary border-2 rounded">
         <ul class="list-group m-0" id="messages">
             @foreach (var obj in Model)
             {
                 if(obj.Id.ToString() != ViewData["UserID"].ToString())//ToString gerekli cunku sistem ikisini farklı degerler olarak algiliyordu.
                 {//Mevcut oturumun sahibinin id'si ile eslesiyorsa anasayfaya bastirma. Kullanici kendine mesaj atamasin.
+                      
                   <li class="list-group-item  d-flex justify-content-between">
                     <h style="font-size: 20px;">@obj.FirstName @obj.LastName || @obj.UserName </h>
-                    <a class="btn btn-primary" asp-controller="Message" asp-action="Index" asp-route-currentUserID=@ViewData["UserID"].ToString() asp-route-targetUserID=@obj.Id.ToString()>Mesaj Gönder</a>
                     </li>
                 }
             }
